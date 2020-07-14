@@ -1,0 +1,24 @@
+#替换feign原生HTTP client
+feign:
+  httpclient:
+    enabled: true
+  #开启断路降级
+  hystrix:
+    enabled: true
+  #支持接收Content-Encoding为gzip的结果
+  compression:
+    response:
+      enabled: true
+#feign断路超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+#feign断路超时时间，；两个尽量配置一样的时间
+ribbon:
+  ReadTimeout: 5000
+
+
